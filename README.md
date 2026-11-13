@@ -16,7 +16,7 @@ An experimental research and compatibility project exploring whether genuine, le
 | Shared development codename | hanoip |
 | RAM variant | 6 GB |
 | Reported firmware/build | S2RIS32.32-20-9-9-2-3 |
-| Reported Android security update | November 1, 2023 |
+| Reported Android security update | November 1, 2023 |\n| User-reported kernel | 4.14.190-perf+ (build timestamp: Fri Oct 27 13:02:24 CDT 2023) |
 | Project target | Experimental One UI 9 compatibility research |
 
 The firmware/build and security patch details are user-reported and should be checked against the device's About phone screen before being treated as independently verified.
