@@ -27,6 +27,10 @@ Android 12 was confirmed by the user in Settings > About phone. The firmware/bui
 
 See [docs/FEASIBILITY_ASSESSMENT.md](docs/FEASIBILITY_ASSESSMENT.md) for the Android 17 / Moto G60 compatibility review. Treble/VNDK and vendor HAL compatibility remain unverified. The exact Motorola kernel source tag is now identified; see [the kernel-source audit](docs/KERNEL_SOURCE_AUDIT.md).
 
+## Next compatibility gate: Treble / VNDK
+
+The next milestone is a read-only audit of the exact Moto G60's Treble support, cross-version VNDK configuration, CPU ABI and VINTF manifest inventory. These results will help assess the Android system/vendor boundary before Samsung framework components are considered. See [the Treble/VNDK audit plan](docs/TREBLE_VNDK_AUDIT.md). No device modifications or firmware flashing are part of this step.
+
 ## Selected Samsung research donor
 
 The proposed read-only research donor is the Samsung Galaxy S26 (`SM-S942B`). Samsung's official Slovak update record lists Android 17 build `S942BXXS6BZK1`, released 2026-11-12, with the November 5, 2026 security patch; the model's Android 17 update history identifies One UI 9. This is a software research reference, not a hardware match or a validated compatible donor. See the [S26 donor profile](docs/S26_DONOR_PROFILE.md) and [donor-firmware strategy](docs/SAMSUNG_DONOR_FIRMWARE_STRATEGY.md).
