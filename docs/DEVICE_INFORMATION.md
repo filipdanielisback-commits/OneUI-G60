@@ -90,13 +90,12 @@ The exact firmware source request for `XT2135-2_HANOIP_RETEU_12_S2RIS32.32-20-9-
 
 - https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
 
-A branch search in the official repository found these related Android 12 branches:
-- `android-12-release-s2ris32.32-20-7-7`
-- `android-12-release-s2ris32.32-20-7-11`
-- `android-12-release-s2ris32.32-20-7-15`
-- `android-12-release-s2ris32.32-20-9-9-2-1`
+The exact-build publication record and tag have now been confirmed:
+- Motorola issue #574 names the XT2135-2 RETEU firmware package ending in `S2RIS32.32-20-9-9-2-3`.
+- Motorola's maintainer linked the exact source tag `MMI-S2RIS32.32-20-9-9-2-3` and closed the issue as completed.
+- The tag page shows short commit identifier `f6673a1` and the release note “Hanoip push for Android 12”.
 
-It did **not** return a branch named for the exact `...-2-3` build. This does not prove that no matching source tag or commit exists; it means the exact branch has not yet been identified. The kernel repository's Releases page reports no packaged releases, so do not treat that page as proof of source availability.
+The official source tag's top-level Makefile identifies kernel version 4.14.190. The base performance defconfig sets `CONFIG_LOCALVERSION="-perf"`, matching the user's reported kernel family. The matching LineageOS 20 device tree also identifies the Hanoip config extension and supporting config stack. See [the detailed kernel-source audit](KERNEL_SOURCE_AUDIT.md).
 
 ### Current engineering decision
 
@@ -148,3 +147,12 @@ Before choosing a kernel source baseline, obtain a non-sensitive build fingerpri
 | Explicit tag for earlier `...-2-1` build | Confirmed: `MMI-S2RIS32.32-20-9-9-2-1` |
 | Explicit tag for target `...-2-3` build | Not confirmed |
 | Exact source commit / defconfig | Not yet identified |
+
+
+## Correction: exact kernel source tag confirmed
+
+The earlier statement that the exact `...-2-3` source tag was unconfirmed is superseded by the later tag audit. Motorola issue #574 explicitly links:
+
+- https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-3
+
+The tag's source version and Hanoip configuration are documented in [KERNEL_SOURCE_AUDIT.md](KERNEL_SOURCE_AUDIT.md). The tag resolves source provenance, but it does not establish a successful build, bit-for-bit match with the installed kernel, or Android 17 compatibility.
