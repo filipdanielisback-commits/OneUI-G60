@@ -21,7 +21,8 @@ A community device specification lists Qualcomm Snapdragon 732G (SM6150 family),
 
 - Firmware/build reported by user: `S2RIS32.32-20-9-9-2-3`
 - Android security update reported by user: **November 1, 2023**
-- Motorola kernel-source request references a firmware package named `XT2135-2_HANOIP_RETEU_12_S2RIS32.32-20-9-9-2-3...`. This links the build identifier with XT2135-2 / hanoip and an Android 12 firmware package; it does not independently verify the software currently installed on the phone.
+- The user confirmed that **Settings > About phone > Android version** displays **Android 12**. This directly verifies the installed Android version on the target phone.
+- Motorola kernel-source request references a firmware package named `XT2135-2_HANOIP_RETEU_12_S2RIS32.32-20-9-9-2-3...`, consistent with the reported XT2135-2 build.
 
 - Motorola kernel source request: https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
 
@@ -44,7 +45,7 @@ The version string alone does not identify the kernel source commit, defconfig, 
 
 Record the following from the actual device, with personal identifiers removed:
 
-- Android version and security patch level shown in Settings > About phone.
+- Android version and security patch level shown in Settings > About phone (Android 12 confirmed; security patch level reported as November 1, 2023).
 - Full model number and build number shown in Settings.
 - SoC / board identifiers from trustworthy system information.
 - Kernel version.
@@ -63,7 +64,7 @@ Do not publish IMEI, serial number, phone number, account identifiers or unredac
 | 6 GB RAM | User-reported target variant |
 | Firmware S2RIS32.32-20-9-9-2-3 | User-reported; matching Motorola kernel-source request exists |
 | Android security update November 1, 2023 | User-reported |
-| Exact installed Android version | Android 12 indicated by matching firmware package; verify on device |
+| Exact installed Android version | **Android 12 confirmed by user in Settings > About phone** |
 | Partition layout / boot configuration | Not yet verified |
 
 
