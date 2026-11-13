@@ -45,19 +45,15 @@ Record the returned values exactly. A blank property means unknown/not exposed b
 
 ### 2. Vendor linker namespace configuration
 
-List the available linker configuration files:
+Android 11 and later generate linker configuration at runtime under `/linkerconfig`. The AOSP linker-namespace documentation identifies `/linkerconfig/ld.config.txt` as the runtime configuration. The GSI compatibility guide describes checking the applicable `/system/etc/ld.config.<version_identifier>.txt` file. For this Android 12 target, record which path exists and inspect the runtime file first:
 
 ```sh
+adb shell ls -l /linkerconfig/ld.config.txt
 adb shell ls /system/etc/ld.config*.txt
+adb shell grep -A 20 '\[vendor\]' /linkerconfig/ld.config.txt
 ```
 
-Then inspect the `[vendor]` section in the applicable file (the exact filename varies by platform):
-
-```sh
-adb shell grep -A 20 '\[vendor\]' /system/etc/ld.config*.txt
-```
-
-Record whether `namespace.default.isolated` is present and its value. If multiple files or sections exist, record the filename and relevant section so the result is not ambiguous.
+If the runtime file is unavailable, record that fact and inspect any applicable `/system/etc/ld.config*.txt` file without changing it. In the `[vendor]` section, record the value of `namespace.default.isolated` exactly. Google's GSI guide says `true` indicates full VNDK support for newer-version GSI use; `false` limits the documented GSI path to the same Android OS version. This is a GSI eligibility criterion, not a guarantee of Samsung framework compatibility. Do not edit linker configuration files.
 
 ### 3. VINTF inventory
 
@@ -79,7 +75,7 @@ If the listed paths differ or a directory is absent, record that fact. Do not as
 | `ro.product.cpu.abilist` | Exact returned value | Not collected |
 | Android release / SDK | Exact returned values | Android 12 confirmed; SDK not collected |
 | `ro.vndk.version` | Exact returned value or blank | Not collected |
-| Vendor linker config | Filename and `namespace.default.isolated` value | Not collected |
+| Vendor linker config | Runtime `/linkerconfig/ld.config.txt` (or applicable static config), `[vendor]` section and exact `namespace.default.isolated` value | Not collected |
 | VINTF directory inventory | Existing paths / manifest filenames | Not collected |
 | HAL compatibility | Compare manifests and matrices after lawful metadata collection | Not assessed |
 
