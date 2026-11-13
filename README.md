@@ -27,6 +27,10 @@ Android 12 was confirmed by the user in Settings > About phone. The firmware/bui
 
 See [docs/FEASIBILITY_ASSESSMENT.md](docs/FEASIBILITY_ASSESSMENT.md) for the Android 17 / Moto G60 compatibility review. Treble/VNDK and vendor HAL compatibility remain unverified. The exact Motorola kernel source tag is now identified; see [the kernel-source audit](docs/KERNEL_SOURCE_AUDIT.md).
 
+## Selected Samsung research donor
+
+The proposed read-only research donor is the Samsung Galaxy S26 (`SM-S942B`). Samsung's official Slovak update record lists Android 17 build `S942BXXS6BZK1`, released 2026-11-12, with the November 5, 2026 security patch; the model's Android 17 update history identifies One UI 9. This is a software research reference, not a hardware match or a validated compatible donor. See the [S26 donor profile](docs/S26_DONOR_PROFILE.md) and [donor-firmware strategy](docs/SAMSUNG_DONOR_FIRMWARE_STRATEGY.md).
+
 ## One UI 9 research baseline
 
 Samsung confirms that One UI 9 is based on **Android 17**. The target Moto G60 is confirmed to run Android 12, so the project begins with a substantial Android platform gap. See [One UI 9 research](docs/ONEUI9_RESEARCH.md) for official Samsung references and open questions.
