@@ -23,6 +23,12 @@ An experimental research and compatibility project exploring whether genuine, le
 
 Android 12 was confirmed by the user in Settings > About phone. The firmware/build, security patch and kernel details are user-reported.
 
+## One UI 9 research baseline
+
+Samsung confirms that One UI 9 is based on **Android 17**. The target Moto G60 is confirmed to run Android 12, so the project begins with a substantial Android platform gap. See [One UI 9 research](docs/ONEUI9_RESEARCH.md) for official Samsung references and open questions.
+
+No Samsung firmware images or proprietary binaries are stored in this repository. Firmware research is metadata and documentation only.
+
 ## Areas of investigation
 
 - **Android framework:** Android base version, framework APIs, services, permissions, SELinux policy and Samsung framework dependencies.
