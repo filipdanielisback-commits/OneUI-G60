@@ -17,11 +17,11 @@ Community device trees identify the shared Moto G40 Fusion / Moto G60 platform c
 
 A community device specification lists Qualcomm Snapdragon 732G (SM6150 family), Adreno 618 and 4/6 GB memory for the shared device family. Verify all properties against the exact phone before relying on them.
 
-## Firmware identifier supplied for this project
+## Firmware and software baseline
 
-`S2RIS32.32-20-9-9-2-3`
-
-A Motorola kernel-source request references a firmware package named `XT2135-2_HANOIP_RETEU_12_S2RIS32.32-20-9-9-2-3...`. This is evidence that the build identifier is associated with XT2135-2 / hanoip and an Android 12 firmware package; it does not itself verify the installed phone's current build.
+- Firmware/build reported by user: `S2RIS32.32-20-9-9-2-3`
+- Android security update reported by user: **November 1, 2023**
+- Motorola kernel-source request references a firmware package named `XT2135-2_HANOIP_RETEU_12_S2RIS32.32-20-9-9-2-3...`. This links the build identifier with XT2135-2 / hanoip and an Android 12 firmware package; it does not independently verify the software currently installed on the phone.
 
 - Motorola kernel source request: https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
 
@@ -46,6 +46,7 @@ Do not publish IMEI, serial number, phone number, account identifiers or unredac
 | Shared codename hanoip | Supported by community device-tree references |
 | Snapdragon 732G / Adreno 618 | Community specification; verify on device |
 | 6 GB RAM | User-reported target variant |
-| Firmware S2RIS32.32-20-9-9-2-3 | Matching Motorola kernel-source request exists; verify installed build |
-| Exact installed Android/security patch | Awaiting on-device confirmation |
+| Firmware S2RIS32.32-20-9-9-2-3 | User-reported; matching Motorola kernel-source request exists |
+| Android security update November 1, 2023 | User-reported |
+| Exact installed Android version | Android 12 indicated by matching firmware package; verify on device |
 | Partition layout / boot configuration | Not yet verified |
