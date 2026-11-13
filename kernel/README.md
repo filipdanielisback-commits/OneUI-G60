@@ -1,15 +1,36 @@
 # Kernel research
 
-The target device reports kernel release `4.14.190-perf+` with build timestamp `#1 Fri Oct 27 13:02:24 CDT 2023`.
+## Exact Motorola source reference
 
-The exact Motorola source revision, configuration and patch set matching firmware `S2RIS32.32-20-9-9-2-3` have not yet been identified. Related hanoip device trees are research references, not proof of a ready-to-build target.
+The exact Motorola source tag for the reported Moto G60 XT2135-2 firmware `S2RIS32.32-20-9-9-2-3` has been identified:
 
-## Research requirements
+- Repository: https://github.com/MotorolaMobilityLLC/kernel-msm
+- Tag: `MMI-S2RIS32.32-20-9-9-2-3`
+- Tag page: https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-3
+- Motorola issue #574: https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
+- Tag page short commit identifier: `f6673a1`
 
-- Link to the official Motorola source repository and exact issue / publication references.
-- Record branch, tag and commit separately; do not treat them as interchangeable.
-- Verify kernel release, defconfig, toolchain and device-specific configuration.
-- Track license obligations for source and patches.
-- Do not add proprietary modules or firmware blobs without redistribution permission.
+The tag's source Makefile identifies Linux `4.14.190`, and the base performance defconfig sets `CONFIG_LOCALVERSION="-perf"`. This agrees with the user's reported runtime kernel family `4.14.190-perf+`.
 
-No kernel build or device test is currently claimed.
+## Hanoip configuration references
+
+The matching LineageOS 20 device-tree branch points to `kernel/motorola/sm6150` and uses:
+
+- `vendor/sdmsteppe-perf_defconfig`
+- `vendor/ext_config/moto-sdmsteppe.config`
+- `vendor/ext_config/moto-sdmmagpie-hanoip.config`
+- `vendor/debugfs.config`
+- `vendor/ext_config/lineage-moto-sdmsteppe.config`
+
+The exact Motorola tag contains the base, Motorola, Hanoip and debugfs config files. The LineageOS-specific extension is supplied by the community kernel fork, not the Motorola tag. A second community device tree uses a different `vendor/hanoip_defconfig` naming convention; do not combine these configurations without checking their intended source branches.
+
+See [the detailed kernel-source audit](../docs/KERNEL_SOURCE_AUDIT.md).
+
+## Limits
+
+- Identifying the source tag does not prove bit-for-bit reproducibility of the installed kernel.
+- No kernel build or boot test has been performed.
+- No compatibility with Android 17 or One UI 9 has been established.
+- Do not add proprietary firmware, restricted modules, extracted vendor blobs or signing keys without permission to redistribute.
+
+The next research task is to compare the Hanoip device configuration, DTB selection, module inventory, vendor HALs and VINTF declarations.
