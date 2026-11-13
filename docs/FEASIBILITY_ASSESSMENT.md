@@ -101,3 +101,10 @@ The visible device-tree references include a `lineage-20` branch, and the Moto-C
 - Samsung One UI 9 announcement: https://news.samsung.com/us/samsung-launches-one-ui-9-beta-galaxy-s26-series-users/
 - Samsung One UI 9 rollout announcement: https://news.samsung.com/us/samsung-begins-official-rollout-one-ui-9-latest-galaxy-experiences-devices/
 - Moto-Common hanoip target status: https://github.com/moto-common/android_device_motorola_targets
+
+
+## Kernel-source audit update (2026-11-13)
+
+Motorola issue #574 explicitly links the exact tag `MMI-S2RIS32.32-20-9-9-2-3` for the XT2135-2 RETEU firmware package. The tag's Makefile reports Linux 4.14.190, and its Hanoip extension enables `CONFIG_HANOIP_DTB=y`. The community LineageOS 20 device-tree config stack is documented in [the kernel-source audit](KERNEL_SOURCE_AUDIT.md).
+
+This improves source provenance confidence but does not change the Android 17 feasibility conclusion: the kernel is still an Android 12-era 4.14 tree, and vendor/HAL, graphics, media, VINTF and framework compatibility remain open research gates. No build or device test has been performed.
