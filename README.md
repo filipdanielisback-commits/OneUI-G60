@@ -70,3 +70,8 @@ Issues and pull requests are welcome for device research, source references, doc
 ## Disclaimer
 
 OneUI-G60 is an independent community research project and is not affiliated with, endorsed by, or supported by Samsung or Motorola. Samsung One UI and related trademarks are the property of their respective owners.
+
+
+## Current research milestone
+
+The shared `hanoip` device-tree references have been located, but the community target index marks the target as dropped. Motorola's exact-build kernel-source request is closed and marked as published; however, the exact `S2RIS32.32-20-9-9-2-3` kernel branch has not yet been identified. See [device research and kernel audit](docs/DEVICE_INFORMATION.md) before treating any source as a build base.
