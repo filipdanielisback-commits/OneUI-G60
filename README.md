@@ -16,10 +16,12 @@ An experimental research and compatibility project exploring whether genuine, le
 | Shared development codename | hanoip |
 | RAM variant | 6 GB |
 | Reported firmware/build | S2RIS32.32-20-9-9-2-3 |
-| Reported Android security update | November 1, 2023 |\n| User-reported kernel | 4.14.190-perf+ (build timestamp: Fri Oct 27 13:02:24 CDT 2023) |
+| Reported Android security update | November 1, 2023 |
+| Installed Android version | Android 12 (confirmed by user in Settings) |
+| User-reported kernel | 4.14.190-perf+ (build timestamp: Fri Oct 27 13:02:24 CDT 2023) |
 | Project target | Experimental One UI 9 compatibility research |
 
-The firmware/build and security patch details are user-reported and should be checked against the device's About phone screen before being treated as independently verified.
+Android 12 was confirmed by the user in Settings > About phone. The firmware/build, security patch and kernel details are user-reported.
 
 ## Areas of investigation
 
@@ -46,14 +48,14 @@ Nothing is marked as working until it has been tested on an XT2135-2 and the tes
 
 ## Repository layout
 
-- `docs/` — device research, compatibility notes and safety guidance
-- `device/motorola/moto-g60/` — future device-specific configuration and documentation
-- `framework/` — framework research and original compatibility work
-- `vendor/` — vendor interface research; do not commit restricted binaries
-- `kernel/` — kernel source references and original configuration work
-- `hardware/` — hardware test plans and results
-- `patches/` — original patches with provenance
-- `testing/` — reproducible test procedures and reports
+- `docs/` — device information, Samsung firmware research, One UI 9 research, compatibility and porting plan
+- `firmware/` — firmware provenance notes and metadata manifests; no firmware images
+- `device/hanoip/` — Moto G60 / shared-platform device research
+- `kernel/` — Motorola kernel-source references and original configuration research
+- `proprietary/` — inventory and licensing notes; no restricted binaries
+- `tools/powershell/` — Windows-side project helper documentation and scripts
+- `tools/wsl/` — WSL2/Linux research environment documentation
+- `research/` — framework, hardware and compatibility investigations
 
 ## Safety and legal boundaries
 
