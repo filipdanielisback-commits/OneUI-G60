@@ -25,6 +25,21 @@ A community device specification lists Qualcomm Snapdragon 732G (SM6150 family),
 
 - Motorola kernel source request: https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
 
+
+## Installed kernel baseline (user-reported)
+
+The user reports the following kernel string from the target phone:
+
+- Kernel release: `4.14.190-perf+`
+- Build timestamp: `#1 Fri Oct 27 13:02:24 CDT 2023`
+
+This timestamp is consistent with the reported firmware build's October 27, 2023 build identifier. A third-party firmware catalog lists the exact build as `S2RIS32.32-20-9-9-2-3` with a matching `231027` build suffix. This is useful corroboration, but it is not a substitute for Motorola's source commit metadata.
+
+The version string alone does not identify the kernel source commit, defconfig, compiler configuration or vendor patch set. Those remain to be matched against Motorola's published source.
+
+- Exact-build Motorola source request: https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
+- Exact-build metadata cross-reference: https://www.phonecopy.com/en/phones/view/motorola_moto_g60
+
 ## Before implementation
 
 Record the following from the actual device, with personal identifiers removed:
