@@ -84,3 +84,35 @@ This gives us a useful historical reference for the hanoip software stack, but i
 When the PC is available, collect read-only VINTF/runtime metadata from the phone and compare it with the public source evidence. The key items are the device manifest's `target-level`, vendor and ODM manifest fragments, device compatibility matrix, HAL interface versions/instances, and actual VNDK/linker configuration. Redact serial numbers, IMEI, account identifiers, and other personal identifiers from any logs before sharing them.
 
 No flashing, partition changes, or firmware modification is part of this audit.
+
+
+## Android 17 framework requirements for an FCM 6 device
+
+AOSP's Android 17 build configuration in the `android16-qpr2-release` source branch explicitly includes `framework_compatibility_matrix.6.android17.xml` in the Android 17 system matrix set. This is an Android 17-specific compatibility matrix for devices targeting FCM 6; it is distinct from the ordinary Android 12-era `compatibility_matrix.6.xml`.
+
+Official source files:
+- Android 17 matrix build selection: https://android.googlesource.com/platform/hardware/interfaces/+/android16-qpr2-release/compatibility_matrices/Android.bp
+- Android 17 FCM 6 matrix: https://android.googlesource.com/platform/hardware/interfaces/+/android16-qpr2-release/compatibility_matrices/compatibility_matrix.6.android17.xml
+
+The inspected Android 17 FCM 6 matrix contains these radio HAL requirements:
+
+| HAL | Interface | Version | Instances |
+|---|---|---:|---|
+| `android.hardware.radio` (HIDL) | `IRadio` | 1.6 | `slot1`, `slot2`, `slot3` |
+| `android.hardware.radio` (HIDL) | `ISap` | 1.2 | `slot1`, `slot2` |
+| `android.hardware.radio.config` (HIDL) | `IRadioConfig` | 1.1 | `default` |
+| `android.hardware.radio.config` (HIDL) | `IRadioConfig` | 1.3 | `default` |
+
+The matrix comments that Android 17 provides special extended support for `IRadio` on devices launching with FCM level 6. This is a meaningful compatibility accommodation for older devices, but it is not proof that a particular device passes VINTF matching. We still need the exact XT2135-2 device manifest and its radio HAL declarations to check versions and instances.
+
+The same Android 17 build file lists the supported framework matrix set for Android 17 devices as FCM 6 (using the Android-17-specific file), 7, 8, 202404, 202504, and 202604. It lists a separate older set for Android 16 QPR builds. Do not describe 202604 as the required FCM level for an Android 12/FCM 6 device: the special FCM 6 matrix is the relevant compatibility path to inspect for this target.
+
+### What this tells us about Moto G60
+
+- If the stock XT2135-2 manifest targets FCM 6, the Android 17 FCM 6 radio matrix is directly relevant.
+- We must verify whether the target exposes the required radio and radio-config HAL versions and instance names.
+- The public community hanoip tree inspected earlier does not include the stock vendor manifest, so it cannot answer this question.
+- This matrix is only one piece of the Android 17 framework contract. Other installed framework matrices, product/system_ext requirements, kernel requirements, SELinux policy, VNDK/linker namespaces, and Samsung proprietary framework dependencies remain separate checks.
+- No compatibility verdict can be made until the target manifest and compatibility matrix are collected and checked.
+
+**Research status:** Android 17 FCM 6 radio requirements identified from AOSP source; target-side match remains pending.
