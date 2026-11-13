@@ -2,11 +2,11 @@
 
 ## Protect the device
 
-- Treat all flashing and partition-writing as high risk.
+- Treat flashing and partition-writing as high risk.
 - Do not test experimental builds on a primary-use phone.
 - Confirm the exact XT2135-2 variant before using any device-specific image.
 - Keep a verified stock restore package and recovery procedure available before testing.
-- Do not publish instructions that encourage users to bypass device security protections.
+- Do not publish instructions that encourage bypassing device security protections.
 
 ## Protect private information
 
@@ -22,8 +22,6 @@ Never commit passwords, access tokens, private signing keys, IMEI numbers, seria
 
 ## Reporting test results
 
-Include the exact device model, build fingerprint with sensitive fields removed, software versions, test steps, expected result, actual result and relevant redacted logs.
-
-## Project status
+Include the exact device model, software versions, test steps, expected result, actual result and relevant redacted logs.
 
 A successful compilation does not prove that a ROM boots. A successful boot does not prove that individual hardware features work. Publish only verified claims.

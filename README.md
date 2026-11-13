@@ -11,13 +11,14 @@ An experimental research and compatibility project exploring whether genuine, le
 | Item | Target |
 |---|---|
 | Manufacturer | Motorola |
-| Device | Moto G60 |
+| Device | Moto G60 Vision (Motorola regulatory model designation for XT2135-2) |
 | Model | XT2135-2 |
+| Shared development codename | hanoip |
 | RAM variant | 6 GB |
 | Reported firmware/build | S2RIS32.32-20-9-9-2-3 |
 | Project target | Experimental One UI 9 compatibility research |
 
-The reported firmware/build identifier is user-provided and has not yet been independently verified.
+The reported firmware/build identifier is user-provided and has not yet been independently verified on-device.
 
 ## Areas of investigation
 
@@ -42,7 +43,7 @@ Nothing is marked as working until it has been tested on an XT2135-2 and the tes
 | Bluetooth | Not tested; planned future work |
 | Camera / sensors / cellular / fingerprint | Not tested |
 
-## Planned repository layout
+## Repository layout
 
 - `docs/` — device research, compatibility notes and safety guidance
 - `device/motorola/moto-g60/` — future device-specific configuration and documentation
