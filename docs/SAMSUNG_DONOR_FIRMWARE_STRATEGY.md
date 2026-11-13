@@ -3,7 +3,7 @@
 **Project:** OneUI-G60  
 **Target:** Motorola Moto G60 XT2135-2 (hanoip), Android 12 baseline  
 **Research date:** 2026-11-13  
-**Status:** Planning only. No Samsung firmware images have been acquired, extracted, modified, or tested.
+**Status:** Donor selected for read-only research. No Samsung firmware images have been acquired, extracted, modified, or tested.
 
 ## Objective
 
@@ -59,9 +59,24 @@ There is no valid generic “One UI 9 system.img” that is guaranteed to work a
 
 ## Donor selection status
 
-**Not selected yet.** Do not download, unpack, or publish a donor package until the exact donor model and build are recorded and its firmware provenance and redistribution terms are understood.
+**Selected research donor: Samsung Galaxy S26, model `SM-S942B` (European model).** This is a documentation/research selection, not a compatibility finding or a claim that its firmware can boot on the Moto G60.
 
-The donor should be an official One UI 9 / Android 17 build, with a clearly documented model and build identity. Similar CPU architecture alone does not make its vendor image compatible with the Moto G60.
+Samsung's official Slovak software-update record for `SM-S942B` lists the following current build information as of 2026-11-13:
+
+| Field | Recorded value |
+|---|---|
+| Donor device | Galaxy S26 |
+| Model | `SM-S942B` |
+| Official update record | https://doc.samsungmobile.com/SM-S942B/037160260310/slk.html |
+| Latest listed build | `S942BXXS6BZK1` |
+| Android version | Android 17 (shown by Samsung as `C(Android 17)`) |
+| Release date | 2026-11-12 |
+| Security patch level | 2026-11-05 |
+| One UI 9 evidence | Samsung's same model update history identifies One UI 9 in the Android 17 update notes (for build `S942BXXU4BZI6`). |
+
+The latest listed build above is the current metadata snapshot, not a claim that every CSC/carrier has received it. Re-check the official record before any future analysis because firmware availability and build numbers can change.
+
+The Galaxy S26 is not a chipset match for the Moto G60. It is selected because it provides a documented official Android 17 / One UI 9 system-software reference. Its hardware-specific images and services are not presumed compatible. Do not treat Samsung `vendor`, `odm`, `boot`, `vendor_boot`, `dtbo`, modem/radio or `vbmeta` as target components.
 
 ## Evidence required before any port work
 
@@ -85,6 +100,4 @@ The donor should be an official One UI 9 / Android 17 build, with a clearly docu
 
 ## Current decision
 
-The correct next input is the **exact Samsung donor model and firmware build**. Until a donor is selected, there is no responsible way to identify the relevant One UI 9 `.img` files or assess their compatibility.
-
-The first engineering comparison after donor selection should be the donor image inventory against the Moto G60's existing partition map and VINTF/vendor interface—not replacing Motorola's vendor image with Samsung's.
+The donor identity is now recorded as **Galaxy S26 `SM-S942B`**, with `S942BXXS6BZK1` as the latest build listed on Samsung's Slovak update page on 2026-11-13. The next research task is a metadata-only comparison: document the Samsung firmware package/image inventory and compare its Android framework requirements with the Moto G60's known partition map, VINTF declarations and vendor/HAL baseline. No binary redistribution, flashing, repartitioning or device modification is part of this milestone.
