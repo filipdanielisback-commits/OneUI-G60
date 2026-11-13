@@ -27,6 +27,10 @@ Android 12 was confirmed by the user in Settings > About phone. The firmware/bui
 
 See [docs/FEASIBILITY_ASSESSMENT.md](docs/FEASIBILITY_ASSESSMENT.md) for the Android 17 / Moto G60 compatibility review. Treble/VNDK and vendor HAL compatibility remain unverified. The exact Motorola kernel source tag is now identified; see [the kernel-source audit](docs/KERNEL_SOURCE_AUDIT.md).
 
+## FCM compatibility research
+
+A new source-level note records Android 12's usual FCM level 6, explains the VINTF manifest/matrix matching model, and flags that the current AOSP FCM mapping table does not yet document an Android 17 FCM level. We will not assume or invent that level. See [FCM compatibility research](docs/FCM_COMPATIBILITY_RESEARCH.md). The [Treble/VNDK audit plan](docs/TREBLE_VNDK_AUDIT.md) was also clarified for Android 12 runtime linker configuration.
+
 ## Next compatibility gate: Treble / VNDK
 
 The next milestone is a read-only audit of the exact Moto G60's Treble support, cross-version VNDK configuration, CPU ABI and VINTF manifest inventory. These results will help assess the Android system/vendor boundary before Samsung framework components are considered. See [the Treble/VNDK audit plan](docs/TREBLE_VNDK_AUDIT.md). No device modifications or firmware flashing are part of this step.
