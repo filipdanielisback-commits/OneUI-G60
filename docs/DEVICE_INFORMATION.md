@@ -131,7 +131,7 @@ Important distinction: the adjacent earlier build `S2RIS32.32-20-9-9-2-1` has an
 - https://github.com/MotorolaMobilityLLC/kernel-msm/issues/559
 - https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-1
 
-No corresponding `MMI-S2RIS32.32-20-9-9-2-3` release tag was confirmed during this audit. The official repository's Releases page currently shows no packaged releases, while the earlier tag is directly referenced in the issue discussion. This means the exact-build source publication status is indicated by the issue label, but the precise tag/commit mapping remains unresolved.
+The exact `MMI-S2RIS32.32-20-9-9-2-3` release tag was subsequently confirmed. Motorola's maintainer linked it directly in issue #574. The release page shows short commit identifier `f6673a1` and describes the release as “Hanoip push for Android 12”. See [KERNEL_SOURCE_AUDIT.md](KERNEL_SOURCE_AUDIT.md) for the source version and config-stack review.
 
 ### Next evidence needed
 
@@ -145,8 +145,9 @@ Before choosing a kernel source baseline, obtain a non-sensitive build fingerpri
 | Kernel build timestamp | User-reported: 2023-10-27 13:02:24 CDT |
 | Exact firmware source issue | Found; marked published |
 | Explicit tag for earlier `...-2-1` build | Confirmed: `MMI-S2RIS32.32-20-9-9-2-1` |
-| Explicit tag for target `...-2-3` build | Not confirmed |
-| Exact source commit / defconfig | Not yet identified |
+| Explicit tag for target `...-2-3` build | Confirmed: `MMI-S2RIS32.32-20-9-9-2-3` |
+| Source version / Hanoip config stack | Confirmed: 4.14.190; base and Hanoip config files identified |
+| Full source-to-binary reproducibility | Not tested |
 
 
 ## Correction: exact kernel source tag confirmed
