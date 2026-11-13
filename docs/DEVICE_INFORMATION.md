@@ -50,3 +50,54 @@ Do not publish IMEI, serial number, phone number, account identifiers or unredac
 | Android security update November 1, 2023 | User-reported |
 | Exact installed Android version | Android 12 indicated by matching firmware package; verify on device |
 | Partition layout / boot configuration | Not yet verified |
+
+
+## Milestone 2: device-tree and kernel-source audit
+
+### Device tree findings
+
+The public `motorola-sm6150-devs/device_motorola_hanoip` repository identifies itself as an Android device tree for Moto G40 Fusion / Moto G60 (`hanoip`). The TeamWin `android_device_motorola_hanoip` repository also documents G40/G60 support. These are useful upstream references, but neither alone proves that its configuration is correct for every XT2135-2 regional SKU or the exact RETEU firmware.
+
+- https://github.com/motorola-sm6150-devs/device_motorola_hanoip
+- https://github.com/TeamWin/android_device_motorola_hanoip
+- https://github.com/moto-common/android_device_motorola_targets
+
+The Moto-Common targets index currently lists `hanoip` as **Dropped**. Treat old device trees as historical reference material, not as a maintained supported target.
+
+### Kernel-source findings
+
+Motorola's official `MotorolaMobilityLLC/kernel-msm` repository is the relevant public kernel source repository for MSM-based Motorola devices:
+
+- https://github.com/MotorolaMobilityLLC/kernel-msm
+
+The exact firmware source request for `XT2135-2_HANOIP_RETEU_12_S2RIS32.32-20-9-9-2-3...` is closed and labeled `publishedoss code is published`:
+
+- https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
+
+A branch search in the official repository found these related Android 12 branches:
+- `android-12-release-s2ris32.32-20-7-7`
+- `android-12-release-s2ris32.32-20-7-11`
+- `android-12-release-s2ris32.32-20-7-15`
+- `android-12-release-s2ris32.32-20-9-9-2-1`
+
+It did **not** return a branch named for the exact `...-2-3` build. This does not prove that no matching source tag or commit exists; it means the exact branch has not yet been identified. The kernel repository's Releases page reports no packaged releases, so do not treat that page as proof of source availability.
+
+### Current engineering decision
+
+- Use the hanoip device trees as references for understanding product configuration, HAL declarations, init files, partition metadata and proprietary-file manifests.
+- Do not copy a tree wholesale into this project or assume G40 Fusion and XT2135-2 are interchangeable without checking SKU-specific properties.
+- Do not select a kernel branch based only on a similar build number. First establish the exact source revision, kernel version, toolchain and matching device configuration.
+- Do not mark Wi-Fi, battery, audio, GPU, CPU or apps as working based on source inspection alone.
+
+### Audit status
+
+| Area | Result |
+|---|---|
+| Shared device tree reference | Found |
+| TWRP device configuration reference | Found |
+| Current community target status | Dropped |
+| Exact firmware source request | Closed; labeled code published |
+| Exact `...-2-3` kernel branch | Not identified in branch search |
+| Matching kernel commit / defconfig | Not yet verified |
+| XT2135-2 SKU-specific configuration | Not yet verified |
+| Build readiness | Not established |
