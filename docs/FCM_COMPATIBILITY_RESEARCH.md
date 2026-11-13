@@ -48,3 +48,39 @@ Only after those records are available can the team compare the target vendor im
 ## Current conclusion
 
 FCM is a useful compatibility framework for this project, but no target-device VINTF evidence has been collected yet. The gate remains **unknown / pending**. This note does not claim that the Moto G60 can run Android 17 or One UI 9.
+
+## Public hanoip device-tree evidence (historical, not stock-device proof)
+
+A public community device tree was inspected:
+- Repository: https://github.com/motorola-sm6150-devs/device_motorola_hanoip
+- Branch inspected: `lineage-20`
+- Its README identifies the tree as Motorola Moto G40 Fusion / Moto G60 (`hanoip`).
+- `BoardConfig.mk` declares `TARGET_BOARD_PLATFORM := sm6150` and `TARGET_BOOTLOADER_BOARD_NAME := hanoip`.
+- `device.mk` declares `BOARD_SHIPPING_API_LEVEL := 30`, `PRODUCT_SHIPPING_API_LEVEL := 30`, `PRODUCT_TARGET_VNDK_VERSION := 30`, and `PRODUCT_EXTRA_VNDK_VERSIONS := 30`.
+
+Important limitations:
+- This is a community LineageOS 20-era build tree, not Motorola's original Android 12 stock source tree and not a dump from the user's exact XT2135-2.
+- The inspected device-tree file inventory did not contain a VINTF manifest or compatibility-matrix XML. The build inherits proprietary vendor makefiles, so the missing VINTF declarations may be supplied by separate vendor repositories or extracted vendor files.
+- The tree's shipping API/VNDK values are build configuration for that community target. They must not be treated as proof of the stock XT2135-2 manifest target level, installed vendor API, or actual runtime VNDK.
+- The tree's shared Moto G40 Fusion/G60 naming does not by itself prove every file and HAL configuration is identical for every regional SKU.
+
+This gives us a useful historical reference for the hanoip software stack, but it does not complete either VINTF matching pair.
+
+## Preliminary VINTF audit matrix
+
+| Check | Evidence found | Status |
+|---|---|---|
+| Exact XT2135-2 device manifest | Not yet obtained | **Pending** |
+| Device manifest `target-level` | Not yet obtained | **Pending** |
+| Vendor and ODM HAL declarations | Not present in inspected public device-tree inventory | **Pending** |
+| Device compatibility matrix | Not yet obtained | **Pending** |
+| Community hanoip build shipping API | API 30 declared in LineageOS 20 tree | Historical reference only |
+| Community hanoip build VNDK | Version 30 declared in LineageOS 20 tree | Historical reference only |
+| Android 17 framework FCM level and matrix | No authoritative Android 17 level recorded in this audit | **Pending** |
+| Samsung One UI proprietary framework requirements | Not inventoried | **Pending** |
+
+## Next evidence to collect from the target
+
+When the PC is available, collect read-only VINTF/runtime metadata from the phone and compare it with the public source evidence. The key items are the device manifest's `target-level`, vendor and ODM manifest fragments, device compatibility matrix, HAL interface versions/instances, and actual VNDK/linker configuration. Redact serial numbers, IMEI, account identifiers, and other personal identifiers from any logs before sharing them.
+
+No flashing, partition changes, or firmware modification is part of this audit.
