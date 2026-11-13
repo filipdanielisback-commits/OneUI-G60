@@ -25,7 +25,7 @@ Android 12 was confirmed by the user in Settings > About phone. The firmware/bui
 
 ## Current feasibility assessment
 
-See [docs/FEASIBILITY_ASSESSMENT.md](docs/FEASIBILITY_ASSESSMENT.md) for the first Android 17 / Moto G60 compatibility review. Treble/VNDK, vendor HAL and exact kernel-source compatibility remain unverified.
+See [docs/FEASIBILITY_ASSESSMENT.md](docs/FEASIBILITY_ASSESSMENT.md) for the Android 17 / Moto G60 compatibility review. Treble/VNDK and vendor HAL compatibility remain unverified. The exact Motorola kernel source tag is now identified; see [the kernel-source audit](docs/KERNEL_SOURCE_AUDIT.md).
 
 ## One UI 9 research baseline
 
@@ -90,4 +90,4 @@ The first read-only audit of the historical `hanoip` / SM6150 LineageOS 20 devic
 
 ## Current research milestone
 
-The shared `hanoip` device-tree references have been located, but the community target index marks the target as dropped. Motorola's exact-build kernel-source request is closed and marked as published; however, the exact `S2RIS32.32-20-9-9-2-3` kernel branch has not yet been identified. See [device research and kernel audit](docs/DEVICE_INFORMATION.md) before treating any source as a build base.
+The shared `hanoip` device-tree references have been audited, and the exact Motorola kernel source tag for `S2RIS32.32-20-9-9-2-3` has been identified. The community target index still marks `hanoip` as dropped; vendor/HAL and Android 17 compatibility remain unverified. See [device research](docs/DEVICE_INFORMATION.md), the [device-tree audit](docs/HANOIP_DEVICE_TREE_AUDIT.md), and the [kernel-source audit](docs/KERNEL_SOURCE_AUDIT.md).
