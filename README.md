@@ -23,6 +23,10 @@ An experimental research and compatibility project exploring whether genuine, le
 
 Android 12 was confirmed by the user in Settings > About phone. The firmware/build, security patch and kernel details are user-reported.
 
+## Current feasibility assessment
+
+See [docs/FEASIBILITY_ASSESSMENT.md](docs/FEASIBILITY_ASSESSMENT.md) for the first Android 17 / Moto G60 compatibility review. Treble/VNDK, vendor HAL and exact kernel-source compatibility remain unverified.
+
 ## One UI 9 research baseline
 
 Samsung confirms that One UI 9 is based on **Android 17**. The target Moto G60 is confirmed to run Android 12, so the project begins with a substantial Android platform gap. See [One UI 9 research](docs/ONEUI9_RESEARCH.md) for official Samsung references and open questions.
