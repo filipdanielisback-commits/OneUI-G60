@@ -116,3 +116,34 @@ It did **not** return a branch named for the exact `...-2-3` build. This does no
 | Matching kernel commit / defconfig | Not yet verified |
 | XT2135-2 SKU-specific configuration | Not yet verified |
 | Build readiness | Not established |
+
+
+## Milestone 3: exact kernel release reference check
+
+The installed kernel release reported by the user is `4.14.190-perf+` (build timestamp `#1 Fri Oct 27 13:02:24 CDT 2023`). This confirms the version string to use when comparing source metadata, but it does not uniquely identify a source revision.
+
+The Motorola issue for the exact XT2135-2 RETEU firmware build `S2RIS32.32-20-9-9-2-3` is closed and marked `publishedoss code is published`:
+
+- https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
+
+Important distinction: the adjacent earlier build `S2RIS32.32-20-9-9-2-1` has an explicit Motorola-published release tag, `MMI-S2RIS32.32-20-9-9-2-1`, documented by Motorola staff in issue #559:
+
+- https://github.com/MotorolaMobilityLLC/kernel-msm/issues/559
+- https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-1
+
+No corresponding `MMI-S2RIS32.32-20-9-9-2-3` release tag was confirmed during this audit. The official repository's Releases page currently shows no packaged releases, while the earlier tag is directly referenced in the issue discussion. This means the exact-build source publication status is indicated by the issue label, but the precise tag/commit mapping remains unresolved.
+
+### Next evidence needed
+
+Before choosing a kernel source baseline, obtain a non-sensitive build fingerprint from the phone (Settings > About phone > Build number / software information, or a read-only system-information report). Redact serial numbers, IMEI, phone number and account details. Then compare its product, device, build ID and fingerprint fields with the Motorola source metadata. Do not share a full diagnostic dump.
+
+### Milestone 3 status
+
+| Check | Result |
+|---|---|
+| Installed kernel release string | User-reported: `4.14.190-perf+` |
+| Kernel build timestamp | User-reported: 2023-10-27 13:02:24 CDT |
+| Exact firmware source issue | Found; marked published |
+| Explicit tag for earlier `...-2-1` build | Confirmed: `MMI-S2RIS32.32-20-9-9-2-1` |
+| Explicit tag for target `...-2-3` build | Not confirmed |
+| Exact source commit / defconfig | Not yet identified |
